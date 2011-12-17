@@ -1,0 +1,36 @@
+<div id="smartphone_list">
+<h1>Listing smartphones</h1>
+
+<table>
+  <% @smartphones.each do|smartphone| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+        <td>
+          <%= image_tag(smartphone.image_url, :class => 'list_image') %>
+          </td>
+
+        <td class="list_description">
+          <dl>
+            <dt><%= smartphone.phone %></dt>
+            <dd><%= truncate(strip_tags(smartphone.description),
+            :length => 80) %></dd>
+            </dl>
+          </td>
+
+        <td class="list actions">
+
+
+        <%= link_to 'Show', smartphone %><br/>
+        <%= link_to 'Edit', edit_smartphone_path(smartphone) %><br/>
+        <%= link_to 'Destroy', smartphone,
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+</div>
+
+<br/>
+
+<%= link_to 'New Smartphone', new_smartphone_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Phone:</b>
+  <%= @smartphone.phone %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @smartphone.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @smartphone.image_url %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @smartphone.price %>
+</p>
+
+<p>
+  <b>Techspec:</b>
+  <%= @smartphone.techspec %>
+</p>
+
+
+<%= link_to 'Edit', edit_smartphone_path(@smartphone) %> |
+<%= link_to 'Back', smartphones_path %>

@@ -1,6 +1,6 @@
 <div id="smartphone_list">
 <h1>Listing smartphones</h1>
-
+<th>UserID</th>
 <table>
   <% @smartphones.each do|smartphone| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
@@ -18,7 +18,6 @@
           </td>
 
         <td class="list actions">
-
 
         <%= link_to 'Show', smartphone %><br/>
         <%= link_to 'Edit', edit_smartphone_path(smartphone) %><br/>

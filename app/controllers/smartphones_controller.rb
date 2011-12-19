@@ -1,6 +1,7 @@
 class SmartphonesController < ApplicationController
   # GET /smartphones
   # GET /smartphones.xml
+  before_filter :authenticate, :except => [:index, :show]
   def index
     @smartphones = Smartphone.search(params[:search_query])
 
@@ -40,7 +41,7 @@ class SmartphonesController < ApplicationController
   # POST /smartphones
   # POST /smartphones.xml
   def create
-    @smartphone = Smartphone.new(params[:smartphone])
+    @smartphone = current_user.smartphones.new(params[:smartphone])
 
     respond_to do |format|
       if @smartphone.save

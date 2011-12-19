@@ -1,8 +1,14 @@
 Store::Application.routes.draw do
+  get "users/new"
+
   get "welcome/home"
   get "welcome/thank_you"
   get "welcome/register"
   resources :smartphones
+  resources :users
+  resources :sessions
+  match '/login' => "sessions#new", :as => "login"
+  match '/logout' => "sessions#destroy", :as => "logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
